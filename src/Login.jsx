@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function LoginForm({ onLogin }) {
-  const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
@@ -9,15 +9,15 @@ export default function LoginForm({ onLogin }) {
     e.preventDefault();
     setError("");
     try {
-      const res = await fetch("http://localhost:3000/auth/login", {
+      const res = await fetch("http://localhost:3000/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ username, password }),
       });
       const data = await res.json();
       if (res.ok) {
         document.cookie = `authToken=${data.authToken}; path=/`;
-        onLogin(data.user);
+        onLogin(data);
       } else {
         setError(data.message || "Login failed");
       }
@@ -31,10 +31,10 @@ export default function LoginForm({ onLogin }) {
       <h2>Login</h2>
       {error && <p style={{ color: "red" }}>{error}</p>}
       <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        type="text"
+        placeholder="Username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
         required
       /><br />
       <input
