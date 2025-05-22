@@ -11,7 +11,7 @@ export default function TodoList({ authToken }) {
   const fetchTodos = async () => {
     setLoading(true);
     setError(null);
-    console.log("Auth token:", authToken);
+    
     try {
       const res = await fetch("http://localhost:3000/todos", {
         headers: {
