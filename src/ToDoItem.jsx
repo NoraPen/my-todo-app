@@ -30,7 +30,7 @@ export default function TodoItem({
           marginBottom: 10,
           padding: 10,
           border: "1px solid #ccc",
-          backgroundColor: editCompleted ? "#e0ffe0" : "white",
+          backgroundColor: editCompleted ? "#242424" : "black",
         }}
       >
         <input
@@ -65,7 +65,7 @@ export default function TodoItem({
         marginBottom: 10,
         padding: 10,
         border: "1px solid #ccc",
-        backgroundColor: todo.completed ? "#e0ffe0" : "white",
+        backgroundColor: todo.completed ? "#242424" : "black",
       }}
     >
       <h4 style={{ margin: "0 0 5px 0" }}>
